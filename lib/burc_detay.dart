@@ -1,17 +1,42 @@
 import 'package:flutter/material.dart';
+import 'package:palette_generator/palette_generator.dart';
 import 'burc_liste.dart';
 import 'models/burc.dart';
 
-class BurcDetay extends StatelessWidget {
+class BurcDetay extends StatefulWidget {
   int burcIndex;
-  Burc secilenBurc;
 
   BurcDetay(this.burcIndex);
 
   @override
-  Widget build(BuildContext context) {
-    secilenBurc = BurcListesi.tumBurclar[burcIndex];
+  _BurcDetayState createState() => _BurcDetayState();
+}
 
+class _BurcDetayState extends State<BurcDetay> {
+  Burc secilenBurc;
+  Color appBarRenk;
+
+  PaletteGenerator paletteGenerator;
+  void appBarRenkAyarla (){
+    Future<PaletteGenerator> appBarResmi = PaletteGenerator.fromImageProvider(AssetImage('images/' + secilenBurc.burcBuyukResim));
+    appBarResmi.then((value) {
+      paletteGenerator = value;
+      setState(() {
+        appBarRenk = paletteGenerator.dominantColor.color;
+      });
+    });
+
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    secilenBurc = BurcListesi.tumBurclar[widget.burcIndex];
+    appBarRenkAyarla();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return new Scaffold(
       body: new CustomScrollView(
         primary: false,
@@ -20,6 +45,7 @@ class BurcDetay extends StatelessWidget {
             expandedHeight: 250,
             pinned: true,
             primary: true,
+            backgroundColor: appBarRenk != null ? appBarRenk : Colors.indigo,
             flexibleSpace: new FlexibleSpaceBar(
               title: new Text(secilenBurc.burcAdi + ' Burcu ve Özellikleri'),
               background: Image.asset(
