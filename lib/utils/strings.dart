@@ -59,7 +59,7 @@ class Strings {
   "\tUğurlu kokularınız: Karanfil, elma çiçeği\n\n"
   "\tOlumlu özelliğiniz: Güvenilirlik\n\n"
   "\tOlumsuz özelliğiniz: İnatçılık\n\n"
-  "\tAnlaştığınız burçlar: Yengeç, Balık\n\n"
+  "\tAnlaştığınız burçlar: Yengeç, Balık, Oğlak\n\n"
   "\tAnlaşamadığınız burçlar: Kova, Aslan, Akrep\n\n"
   "\tBaşarılı olacağınız meslekler: Askerlik, doktorluk, mimarlık, mühendislik, bankacılık\n\n"
   "\tBurcunuzdan olan ünlüler:  Nükhet Duru, Öztürk Serengil, Salvadore Dali, Karl Marks, Lenin, Sigmund Freud, Shakespare\n\n",
