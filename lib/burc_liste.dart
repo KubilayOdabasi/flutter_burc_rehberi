@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_burc_rehberi/utils/strings.dart';
+import 'utils/strings.dart';
 import 'models/burc.dart';
 
 class BurcListesi extends StatelessWidget {
-  List<Burc> tumBurclar;
+  static List<Burc> tumBurclar;
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +56,7 @@ class BurcListesi extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: new ListTile(
           onTap: (){
-            debugPrint('${oanListeyeEklenenBurc.burcAdi} - Tıklandı');
+            //debugPrint('${oanListeyeEklenenBurc.burcAdi} - Tıklandı');
             Navigator.pushNamed(context, '/burcDetay/$index');
           },
           leading: new Image.asset(
